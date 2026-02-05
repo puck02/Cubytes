@@ -41,9 +41,35 @@ Cling是一个交互式C语言学习系统，包含58道精心设计的练习，
 
 ## 🚀 快速开始
 
+### ⚡ 一键安装（推荐）
+
+自动安装Cling + C编译器 + CMake，开箱即用！
+
+**macOS / Linux：**
+```bash
+curl -fsSL https://raw.githubusercontent.com/puck02/Cling/main/scripts/install.sh | bash
+```
+
+**Windows（以管理员身份运行PowerShell）：**
+```powershell
+iwr -useb https://raw.githubusercontent.com/puck02/Cling/main/scripts/install.ps1 | iex
+```
+
+安装完成后，克隆仓库开始学习：
+```bash
+git clone https://github.com/puck02/Cling.git
+cd Cling
+cling watch
+```
+
+---
+
+<details>
+<summary>📦 手动安装（如果一键安装失败）</summary>
+
 ### 1. 安装Cling工具
 
-前往 [Releases页面](https://github.com/puck02/cling/releases) 下载最新版本：
+前往 [Releases页面](https://github.com/puck02/Cling/releases) 下载最新版本：
 
 **Windows：**
 - 下载 `cling-windows-x86_64.exe`
@@ -109,12 +135,14 @@ cmake --version
 
 ```bash
 # 克隆练习仓库
-git clone https://github.com/puck02/cling.git
-cd cling
+git clone https://github.com/puck02/Cling.git
+cd Cling
 
 # 启动watch模式开始学习
 cling watch
 ```
+
+</details>
 
 > 💡 **完全新手？** 不用担心！watch模式会自动检测你的代码更改并给出即时反馈，跟着提示一步步来就好。
 

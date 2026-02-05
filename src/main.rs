@@ -129,7 +129,7 @@ fn list_exercises(exercises: &ExerciseList, state: &StateFile) {
 
 fn reset_exercise(exercises: &ExerciseList, name: &str, state: &mut StateFile) {
     match exercises.find(name) {
-        Some(exercise) => {
+        Some(_) => {
             // 从备份恢复或从git恢复
             println!("{} {}", "🔄 重置练习:".yellow(), name);
             // TODO: 实现重置逻辑
@@ -144,11 +144,14 @@ fn reset_exercise(exercises: &ExerciseList, name: &str, state: &mut StateFile) {
 }
 
 fn check_current(exercises: &ExerciseList, state: &mut StateFile) {
-    if let Some(current) = &state.current {
-        run::run(exercises, current, state);
-    } else {
-        println!("{}", "没有当前练习".yellow());
-    }
+    let current = match &state.current {
+        Some(c) => c.clone(),
+        None => {
+            println!("{}", "没有当前练习".yellow());
+            return;
+        }
+    };
+    run::run(exercises, &current, state);
 }
 
 fn check_all(exercises: &ExerciseList, state: &mut StateFile) {

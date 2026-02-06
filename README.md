@@ -268,16 +268,9 @@ gcc -Wall -Wextra -Werror -std=c11 -O2
 
 1. **按顺序完成** - 练习难度递进，跳过会导致困难
 2. **先思考再看提示** - 独立思考能加深理解
-3. **理解测试用例** - 测试用例展示了函数的预期行为
-4. **查阅文档** - 遇到不熟悉的函数，查阅[cppreference](https://en.cppreference.com/w/c)
-5. **动手实践** - 修改测试用例，尝试不同输入
-6. **查看解答** - 完成后查看solutions/目录的标准答案
+3. **查阅文档/问AI** - 遇到不熟悉的函数，查阅[cppreference](https://en.cppreference.com/w/c),或问AI获取提示
+4. **查看解答** - 完成后查看solutions/目录的标准答案
 
-## 🤝 贡献
-
-欢迎贡献练习题目、修复bug或改进文档！
-
-详见 [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## 📜 许可证
 
@@ -287,11 +280,6 @@ MIT License - 详见 [LICENSE](LICENSE)
 
 - 灵感来自 [Rustlings](https://github.com/rust-lang/rustlings)
 - 测试框架 [Unity](https://github.com/ThrowTheSwitch/Unity)
-
-## 📞 联系方式
-
-- 问题反馈：[GitHub Issues](https://github.com/yourusername/cling/issues)
-- 讨论交流：[GitHub Discussions](https://github.com/yourusername/cling/discussions)
 
 ---
 

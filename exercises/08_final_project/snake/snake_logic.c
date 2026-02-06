@@ -1,40 +1,84 @@
 #include "snake.h"
 #include <stdlib.h>
+#include <string.h>
 
-// TODO: 实现这8个函数来完成贪吃蛇游戏
-
-// 1. 创建新的蛇节点
-// 提示：使用 malloc 分配内存
+// ============================================================================
+// 练习 1: 创建链表节点
+// ============================================================================
+// 功能：分配一个新的蛇节点，并初始化其位置
+// 提示：使用 malloc 分配内存，记得检查返回值
 SnakeNode* snake_node_create(int x, int y) {
-    // TODO: 分配内存创建新节点
-    // TODO: 设置节点的位置
-    // TODO: 设置next指针为NULL
-    return NULL;
+    // TODO: 分配 SnakeNode 内存
+    SnakeNode *node = NULL;  // 你的代码：node = (SnakeNode*)malloc(sizeof(SnakeNode));
+    if (node == NULL) {
+        return NULL;
+    }
+    node->pos.x = x;
+    node->pos.y = y;
+    node->next = NULL;
+    return node;
 }
 
-// 2. 在蛇头插入新节点
-// 提示：新节点应该成为新的头节点
+// ============================================================================
+// 练习 2: 在链表头部插入节点
+// ============================================================================
+// 功能：在蛇头部添加新节点（蛇移动时使用）
+// 提示：新节点的 next 应该指向当前的 head
 void snake_insert_head(Snake *snake, int x, int y) {
-    // TODO: 创建新节点
-    // TODO: 让新节点的next指向当前头节点
-    // TODO: 更新head指针
-    // TODO: 如果是第一个节点，还要更新tail指针
-    // TODO: 增加长度
+    if (snake == NULL) {
+        return;
+    }
+    
+    SnakeNode *new_head = snake_node_create(x, y);
+    if (new_head == NULL) {
+        return;
+    }
+    
+    // TODO: 将新节点链接到链表头部
+    new_head->next = NULL;  // 你的代码：new_head->next = snake->head;
+    snake->head = new_head;
+    
+    if (snake->tail == NULL) {
+        snake->tail = new_head;
+    }
+    
+    snake->length++;
 }
 
-// 3. 删除蛇尾节点
-// 提示：需要遍历链表找到倒数第二个节点
+// ============================================================================
+// 练习 3: 删除链表尾部节点
+// ============================================================================
+// 功能：删除蛇尾（蛇移动且没吃食物时使用）
+// 提示：需要找到倒数第二个节点，条件是 current->next != snake->tail
 void snake_remove_tail(Snake *snake) {
-    // TODO: 处理空链表情况
-    // TODO: 如果只有一个节点，特殊处理
-    // TODO: 遍历找到倒数第二个节点
-    // TODO: 释放尾节点的内存
-    // TODO: 更新tail指针
-    // TODO: 减少长度
+    if (snake == NULL || snake->head == NULL) {
+        return;
+    }
+    
+    if (snake->head == snake->tail) {
+        free(snake->head);
+        snake->head = NULL;
+        snake->tail = NULL;
+        snake->length = 0;
+        return;
+    }
+    
+    SnakeNode *current = snake->head;
+    // TODO: 找到倒数第二个节点
+    while (current != NULL) {  // 你的代码：while (current->next != snake->tail)
+        current = current->next;
+    }
+    
+    free(snake->tail);
+    snake->tail = current;
+    current->next = NULL;
+    snake->length--;
 }
 
-// 4. 检查碰撞（撞墙或自咬）
-// 提示：检查头节点的位置
+// ============================================================================
+// 碰撞检测（完整实现）
+// ============================================================================
+// 检查蛇头是否撞墙或咬到自己
 bool snake_check_collision(Snake *snake, int width, int height) {
     if (snake == NULL || snake->head == NULL) {
         return false;
@@ -42,17 +86,28 @@ bool snake_check_collision(Snake *snake, int width, int height) {
     
     Position head_pos = snake->head->pos;
     
-    // TODO: 检查是否撞墙
-    // 如果x < 0 或 x >= width 或 y < 0 或 y >= height，返回true
+    // 检查撞墙
+    if (head_pos.x < 0 || head_pos.x >= width || 
+        head_pos.y < 0 || head_pos.y >= height) {
+        return true;
+    }
     
-    // TODO: 检查是否咬到自己
-    // 遍历蛇身（从head->next开始），检查是否有节点位置与头部相同
+    // 检查自咬（从第二节开始检查）
+    SnakeNode *current = snake->head->next;
+    while (current != NULL) {
+        if (current->pos.x == head_pos.x && current->pos.y == head_pos.y) {
+            return true;
+        }
+        current = current->next;
+    }
     
     return false;
 }
 
-// 5. 移动蛇
-// 提示：在头部插入新位置，在尾部删除（如果没吃到食物）
+// ============================================================================
+// 蛇的移动（完整实现）
+// ============================================================================
+// 根据方向在头部插入新节点
 void snake_move(Snake *snake, Direction dir) {
     if (snake == NULL || snake->head == NULL) {
         return;
@@ -62,74 +117,100 @@ void snake_move(Snake *snake, Direction dir) {
     int new_x = head_pos.x;
     int new_y = head_pos.y;
     
-    // TODO: 根据方向计算新的头部位置
-    // DIR_UP: y--
-    // DIR_DOWN: y++
-    // DIR_LEFT: x--
-    // DIR_RIGHT: x++
+    switch (dir) {
+        case DIR_UP:    new_y--; break;
+        case DIR_DOWN:  new_y++; break;
+        case DIR_LEFT:  new_x--; break;
+        case DIR_RIGHT: new_x++; break;
+    }
     
-    // TODO: 在新位置插入头节点
-    
-    // 注意：是否删除尾节点由game_update决定（吃到食物时不删除）
+    snake_insert_head(snake, new_x, new_y);
 }
 
-// 6. 生成食物
-// 提示：随机生成位置，确保不在蛇身上
+// ============================================================================
+// 练习 4: 生成食物
+// ============================================================================
+// 功能：在随机位置生成食物（不能与蛇身重合）
+// 提示：使用 rand() % width 生成 0 到 width-1 的随机数
 void food_generate(Food *food, Snake *snake, int width, int height) {
     if (food == NULL || snake == NULL) {
         return;
     }
     
-    // TODO: 使用rand()生成随机位置
-    // x = rand() % width
-    // y = rand() % height
+    bool valid = false;
+    while (!valid) {
+        // TODO: 生成随机坐标
+        food->pos.x = 0;  // 你的代码：food->pos.x = rand() % width;
+        food->pos.y = 0;  // 你的代码：food->pos.y = rand() % height;
+        
+        // 检查是否与蛇身重合
+        valid = true;
+        SnakeNode *current = snake->head;
+        while (current != NULL) {
+            if (current->pos.x == food->pos.x && current->pos.y == food->pos.y) {
+                valid = false;
+                break;
+            }
+            current = current->next;
+        }
+    }
     
-    // TODO: 检查该位置是否在蛇身上
-    // 如果在，重新生成
-    
-    // TODO: 设置food的位置和active状态
+    food->active = true;
 }
 
-// 7. 更新游戏状态
-// 提示：这是核心函数，整合所有逻辑
+// ============================================================================
+// 游戏状态更新（完整实现）
+// ============================================================================
+// 每一帧调用：移动蛇、检测碰撞、检测食物、更新分数
 void game_update(Game *game) {
     if (game == NULL || game->state != GAME_RUNNING) {
         return;
     }
     
     Snake *snake = game->snake;
+    bool ate_food = false;
     
-    // TODO: 保存当前尾部位置（用于判断是否吃到食物）
+    // 1. 移动蛇
+    snake_move(snake, snake->direction);
     
-    // TODO: 移动蛇
+    // 2. 检查碰撞
+    if (snake_check_collision(snake, game->width, game->height)) {
+        game->state = GAME_OVER;
+        return;
+    }
     
-    // TODO: 检查碰撞
-    // 如果碰撞，设置game->state = GAME_OVER并返回
+    // 3. 检查是否吃到食物
+    if (game->food.active && 
+        snake->head->pos.x == game->food.pos.x && 
+        snake->head->pos.y == game->food.pos.y) {
+        game->score += 10;
+        game->food.active = false;
+        ate_food = true;
+        food_generate(&game->food, snake, game->width, game->height);
+    }
     
-    // TODO: 检查是否吃到食物
-    // 如果头部位置与食物位置相同：
-    //   - 增加分数
-    //   - 不删除尾节点（蛇变长）
-    //   - 生成新食物
-    // 否则：
-    //   - 删除尾节点
+    // 4. 如果没吃到食物，删除尾部（蛇不变长）
+    if (!ate_food) {
+        snake_remove_tail(snake);
+    }
 }
 
-// 8. 释放蛇的内存
-// 提示：遍历链表，释放所有节点
+// ============================================================================
+// 释放蛇的内存（完整实现）
+// ============================================================================
+// 遍历链表，释放所有节点
 void snake_free(Snake *snake) {
     if (snake == NULL) {
         return;
     }
     
-    // TODO: 遍历链表，释放所有节点
     SnakeNode *current = snake->head;
-    // while (current != NULL) {
-    //     保存next指针
-    //     释放当前节点
-    //     移动到下一个节点
-    // }
+    while (current != NULL) {
+        SnakeNode *next = current->next;
+        free(current);
+        current = next;
+    }
     
-    // 注意：不要释放Snake结构本身，因为它可能是栈上分配的
-    // 只释放链表节点
+    // 注意：不释放 Snake 结构本身，由调用者负责
 }
+

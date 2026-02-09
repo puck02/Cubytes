@@ -2,8 +2,11 @@
 
 // TODO: 实现函数，返回数组中的最大值
 int find_max(int arr[], int size) {
-    // TODO: 遍历数组找到最大值
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    }
+    return max;
 }
 
 void setUp(void) {}

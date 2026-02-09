@@ -2,20 +2,46 @@
 #include <stdio.h>
 #include <string.h>
 
-// TODO: 实现这个函数
-// 从文件读取所有行，统计行数
-// 使用feof检查文件末尾
 int count_lines(const char *filename) {
-    // TODO: 使用fopen, fgets, feof, fclose
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    
+    int count = 0;
+    char buffer[1024];
+    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+        count++;
+    }
+    
+    fclose(file);
+    return count;
 }
 
-// TODO: 实现这个函数
-// 复制文件内容，并处理错误
-// 使用ferror检查错误，使用clearerr清除错误状态
 int copy_file(const char *src, const char *dest) {
-    // TODO: 使用fopen, fgetc/fputc, ferror, clearerr, fclose
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    
+    FILE *dest_file = fopen(dest, "w");
+    if (dest_file == NULL) {
+        fclose(src_file);
+        return 0;
+    }
+    
+    int ch;
+    while ((ch = fgetc(src_file)) != EOF) {
+        if (ferror(src_file)) {
+            clearerr(src_file);
+            fclose(src_file);
+            fclose(dest_file);
+            return 0;
+        }
+        fputc(ch, dest_file);
+    }
+    
+    fclose(src_file);
+    fclose(dest_file);
+    return 1;
 }
 
 void setUp(void) {}

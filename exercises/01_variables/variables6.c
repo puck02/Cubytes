@@ -4,25 +4,23 @@
 // TODO: 实现这些函数来返回类型或变量的大小
 
 size_t get_int_size(void) {
-    // 返回int类型的大小（字节数）
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 size_t get_double_size(void) {
-    // 返回double类型的大小
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 size_t get_pointer_size(void) {
-    // 返回指针的大小
-    // 提示：sizeof(void*)
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 size_t get_array_size(void) {
-    // 返回包含10个int的数组的总大小
-    int arr[10];
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

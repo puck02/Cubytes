@@ -5,8 +5,10 @@
 // 例如：factorial(5) = 5 * 4 * 3 * 2 * 1 = 120
 // 提示：使用while循环
 int factorial(int n) {
-    // TODO: 使用while循环实现
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    return result;
 }
 
 void setUp(void) {}

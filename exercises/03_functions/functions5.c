@@ -1,19 +1,15 @@
 #include "unity.h"
 
-// TODO: 实现这个函数
-// 计算圆的面积：PI * r * r
-// 使用const定义PI = 3.14159
+const double PI = 3.14159;
+
 double circle_area(double radius) {
-    // TODO: 实现
-    return 0.0;
+    // TODO: 实现这个函数
+    
 }
 
-// TODO: 实现这个函数
-// 判断一个数是否是正数
-// 正数返回1，零和负数返回0
 int is_positive(int n) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

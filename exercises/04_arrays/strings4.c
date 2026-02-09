@@ -2,18 +2,17 @@
 #include <string.h>
 #include <ctype.h>
 
-// TODO: 实现这个函数
-// 将字符串转换为大写（不使用toupper）
-// 提示：小写字母a-z的ASCII码比大写字母A-Z大32
 void to_uppercase(char *str) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
+    }
 }
 
-// TODO: 实现这个函数
-// 反转字符串
-// 例如："hello" -> "olleh"
 void reverse_string(char *str) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
 }
 
 void setUp(void) {}

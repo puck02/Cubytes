@@ -1,25 +1,20 @@
 #include "unity.h"
 
-// TODO: 实现这些函数
-
-// 定义一个常量PI，值为3.14159
-// 提示：使用const关键字
+const double PI = 3.14159;
 
 double get_pi(void) {
-    // 返回PI常量
-    return 0.0;
+    // TODO: 实现这个函数
+    
 }
 
-// 将double转换为int（丢弃小数部分）
 int double_to_int(double value) {
-    // TODO: 使用显式类型转换
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
-// 将int转换为double
 double int_to_double(int value) {
-    // TODO: 隐式或显式转换都可以
-    return 0.0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

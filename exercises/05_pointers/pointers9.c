@@ -6,15 +6,23 @@
 // size: 数组大小
 // 返回：指向新分配数组的指针
 int** allocate_2d_array(int rows, int cols) {
-    // TODO: 使用malloc分配二维数组
-    // 提示：先分配rows个指针，再为每个指针分配cols个int
-    return NULL;
+    int **arr = (int **)malloc(rows * sizeof(int *));
+    for (int i = 0; i < rows; i++) {
+        arr[i] = (int *)malloc(cols * sizeof(int));
+        for (int j = 0; j < cols; j++) {
+            arr[i][j] = 0;
+        }
+    }
+    return arr;
 }
 
 // TODO: 实现这个函数
 // 释放二维数组
 void free_2d_array(int **arr, int rows) {
-    // TODO: 先释放每一行，再释放指针数组
+    // TODO: 实现这个函数
+    
+}
+    free(arr);
 }
 
 void setUp(void) {}

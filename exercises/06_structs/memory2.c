@@ -2,20 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-// TODO: 实现这个函数
-// 使用calloc分配并初始化为0的数组
-// size: 数组大小
 int* allocate_zero_array(int size) {
-    // TODO: 使用calloc分配内存（自动初始化为0）
-    return NULL;
+    return (int *)calloc(size, sizeof(int));
 }
 
-// TODO: 实现这个函数
-// 复制字符串（使用malloc）
-// 返回新分配的字符串副本
 char* duplicate_string(const char *str) {
-    // TODO: 使用malloc + strcpy
-    return NULL;
+    char *new_str = (char *)malloc(strlen(str) + 1);
+    strcpy(new_str, str);
+    return new_str;
 }
 
 void setUp(void) {}

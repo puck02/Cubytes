@@ -5,22 +5,13 @@
 // 学习目标：使用 realloc 调整已分配内存的大小
 // realloc 可以增大或缩小已分配的内存块
 
-// TODO: 实现这个函数
-// 动态增长数组大小（使用realloc）
-// arr: 原数组指针, old_size: 原大小, new_size: 新大小
-// 返回：指向新数组的指针
 int* resize_array(int *arr, int old_size, int new_size) {
-    // TODO: 使用realloc调整大小
-    // 提示：int *new_arr = (int *)realloc(arr, new_size * sizeof(int));
-    return NULL;
+    (void)old_size;  // 标记未使用的参数，避免警告
+    return (int *)realloc(arr, new_size * sizeof(int));
 }
 
-// TODO: 实现这个函数
-// 调整字符串缓冲区大小
 char* resize_string(char *str, int new_size) {
-    // TODO: 使用realloc调整大小
-    // 提示：char *new_str = (char *)realloc(str, new_size * sizeof(char));
-    return NULL;
+    return (char *)realloc(str, new_size * sizeof(char));
 }
 
 void setUp(void) {}

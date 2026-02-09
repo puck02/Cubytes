@@ -4,18 +4,24 @@
 typedef int (*compare_func)(int, int);
 
 int less_than(int a, int b) {
-    return a < b;
+    // TODO: 实现这个函数
+    
 }
 
 int greater_than(int a, int b) {
-    return a > b;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现这个函数
 // 使用比较函数对数组排序（冒泡排序）
 // 提示：使用compare函数指针来决定排序顺序
 void sort_array(int *arr, int size, compare_func compare) {
-    // TODO: 实现冒泡排序，使用compare决定是否交换
+    // TODO: 实现这个函数
+    
+}
+        }
+    }
 }
 
 void setUp(void) {}

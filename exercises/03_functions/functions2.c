@@ -2,17 +2,20 @@
 
 // TODO: 实现减法函数
 int subtract(int a, int b) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现乘法函数
 int multiply(int a, int b) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现除法函数（整数除法）
 int divide(int a, int b) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

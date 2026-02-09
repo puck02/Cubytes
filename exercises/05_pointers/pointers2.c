@@ -4,14 +4,15 @@
 // 通过指针修改变量的值
 // ptr: 指向int的指针, value: 要设置的新值
 void set_value(int *ptr, int value) {
-    // TODO: 使用*ptr解引用指针并赋值
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现这个函数
 // 通过指针读取变量的值
 int get_value(int *ptr) {
-    // TODO: 使用*ptr解引用指针并返回值
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

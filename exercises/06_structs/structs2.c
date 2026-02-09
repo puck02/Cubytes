@@ -1,23 +1,21 @@
 #include "unity.h"
+#include <stdlib.h>
 
 typedef struct {
     int x;
     int y;
 } Point;
 
-// TODO: 实现这个函数
-// 创建一个新的Point并初始化
 Point create_point(int x, int y) {
-    // TODO: 初始化并返回Point
-    Point p = {0, 0};
+    // TODO: 实现这个函数
+    
+};
     return p;
 }
 
-// TODO: 实现这个函数
-// 计算两点之间的曼哈顿距离 |x1-x2| + |y1-y2|
 int manhattan_distance(Point *p1, Point *p2) {
-    // TODO: 使用->访问结构体成员
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

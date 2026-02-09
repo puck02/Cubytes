@@ -1,19 +1,13 @@
 #include "unity.h"
 #include <stdlib.h>
 
-// TODO: 实现这个函数
-// 使用malloc分配一个int数组
-// size: 数组大小
-// 返回：指向新分配数组的指针
 int* allocate_array(int size) {
-    // TODO: 使用malloc分配内存
-    return NULL;
+    return (int *)malloc(size * sizeof(int));
 }
 
-// TODO: 实现这个函数
-// 使用free释放数组内存
 void free_array(int *arr) {
-    // TODO: 使用free释放内存
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

@@ -6,26 +6,30 @@
 // TODO: 使用指针语法访问数组
 // 返回数组中索引为index的元素
 int get_by_pointer(int *arr, int index) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 使用数组语法访问指针
 // 返回指针指向位置偏移index的元素
 int get_by_bracket(int *ptr, int index) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现函数，验证两种方式等价
 // 如果 arr[index] == *(arr + index)，返回1；否则返回0
 int verify_equivalence(int *arr, int index) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 使用指针遍历数组求和
 // 不使用数组下标，只使用指针算术
 int sum_by_pointer(int *arr, int size) {
-    int sum = 0;
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
     return sum;
 }
 

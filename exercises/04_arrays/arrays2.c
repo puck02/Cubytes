@@ -4,14 +4,15 @@
 // 返回数组中指定索引的元素
 // arr: 数组指针, index: 索引
 int get_element(int arr[], int index) {
-    // TODO: 使用下标访问数组元素
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现这个函数
 // 设置数组中指定索引的元素值
 void set_element(int arr[], int index, int value) {
-    // TODO: 使用下标修改数组元素
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

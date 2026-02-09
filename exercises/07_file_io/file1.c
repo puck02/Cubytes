@@ -2,22 +2,30 @@
 #include <stdio.h>
 #include <string.h>
 
-// TODO: 实现这个函数
-// 将字符串写入文件
-// filename: 文件名, content: 要写入的内容
-// 返回：成功返回1，失败返回0
 int write_to_file(const char *filename, const char *content) {
-    // TODO: 使用fopen, fputs/fprintf, fclose
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    fputs(content, file);
+    fclose(file);
+    return 1;
 }
 
-// TODO: 实现这个函数
-// 从文件读取一行内容
-// filename: 文件名, buffer: 缓冲区, size: 缓冲区大小
-// 返回：成功返回1，失败返回0
 int read_from_file(const char *filename, char *buffer, int size) {
-    // TODO: 使用fopen, fgets, fclose
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    if (fgets(buffer, size, file) == NULL) {
+        fclose(file);
+        return 0;
+    }
+    // 移除换行符
+    size_t len = strlen(buffer);
+    if (len > 0 && buffer[len - 1] == '\n') {
+        buffer[len - 1] = '\0';
+    }
+    fclose(file);
+    return 1;
 }
 
 void setUp(void) {}

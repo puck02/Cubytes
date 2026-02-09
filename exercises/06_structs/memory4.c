@@ -12,22 +12,24 @@ typedef struct {
     int capacity;    // 缓冲区总容量
 } DynamicString;
 
-// TODO: 创建动态字符串
-// 初始容量为8个字符
 DynamicString* create_dynamic_string(void) {
-    // TODO: 分配DynamicString结构体和data缓冲区
-    return NULL;
+    DynamicString *ds = (DynamicString *)malloc(sizeof(DynamicString));
+    ds->capacity = 8;
+    ds->size = 0;
+    ds->data = (char *)malloc(ds->capacity);
+    return ds;
 }
 
-// TODO: 添加字符（自动扩容）
-// 如果容量不足，使用realloc将容量翻倍
 void append_char(DynamicString *ds, char c) {
-    // TODO: 检查容量，必要时扩容
+    // TODO: 实现这个函数
+    
+}
+    ds->data[ds->size++] = c;
 }
 
-// TODO: 释放动态字符串
 void free_dynamic_string(DynamicString *ds) {
-    // TODO: 释放所有动态分配的内存
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

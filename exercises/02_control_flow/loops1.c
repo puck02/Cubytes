@@ -5,8 +5,10 @@
 // 例如：sum_to_n(5) = 1 + 2 + 3 + 4 + 5 = 15
 // 提示：使用for循环
 int sum_to_n(int n) {
-    // TODO: 使用for循环实现
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    return sum;
 }
 
 void setUp(void) {}

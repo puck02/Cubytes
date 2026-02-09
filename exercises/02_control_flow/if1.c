@@ -5,8 +5,8 @@
 // 如果 x < 0 返回 -1
 // 如果 x == 0 返回 0
 int sign(int x) {
-    // TODO: 使用if/else实现
-    return 0;
+    // TODO: 在这里实现
+    
 }
 
 void setUp(void) {}

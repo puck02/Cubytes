@@ -6,7 +6,10 @@
 // TODO: 实现函数，使用do-while循环求和
 // 从start加到end（包含end）
 int sum_range(int start, int end) {
-    return 0;
+    // TODO: 实现这个函数
+    
+} while (i <= end);
+    return sum;
 }
 
 // TODO: 模拟输入验证（使用计数器而非真实输入）
@@ -15,9 +18,9 @@ int sum_range(int start, int end) {
 // attempts: 尝试次数数组
 // size: 数组大小
 int validate_input(int valid_value, int attempts[], int size) {
-    int i = 0;
-    int count = 1;
-    // TODO: 使用do-while实现
+    // TODO: 实现这个函数
+    
+} while (i < size);
     return count;
 }
 
@@ -25,8 +28,9 @@ int validate_input(int valid_value, int attempts[], int size) {
 // 例如：sum_digits(123) = 1 + 2 + 3 = 6
 // 使用do-while确保至少处理一次（包括0）
 int sum_digits(int n) {
-    int sum = 0;
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+} while (n > 0);
     return sum;
 }
 

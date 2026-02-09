@@ -2,19 +2,20 @@
 
 // 函数指针示例
 int add(int a, int b) {
-    return a + b;
+    // TODO: 实现这个函数
+    
 }
 
 int subtract(int a, int b) {
-    return a - b;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现这个函数
 // 使用函数指针调用函数
 // operation: 函数指针（指向接受两个int参数并返回int的函数）
 int apply_operation(int (*operation)(int, int), int a, int b) {
-    // TODO: 通过函数指针调用函数
-    return 0;
+    return operation(a, b);
 }
 
 void setUp(void) {}

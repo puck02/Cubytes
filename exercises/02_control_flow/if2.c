@@ -4,8 +4,13 @@
 // 返回三个数中的最大值
 // 提示：使用嵌套的if/else或多个else if
 int max_of_three(int a, int b, int c) {
-    // TODO: 实现逻辑
-    return 0;
+    // TODO: 实现这个函数
+    
+} else if (b >= a && b >= c) {
+        return b;
+    } else {
+        return c;
+    }
 }
 
 void setUp(void) {}

@@ -7,23 +7,24 @@
 // 计算 1 + 2 + 3 + ... + n
 // 思考：基础情况是什么？递归情况如何表达？
 int sum_recursive(int n) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现递归倒数乘积函数
 // 计算从n递减到1的乘积：countdown_product(5) = 5*4*3*2*1 = 120
 // 思考：这和阶乘(factorial)类似
 int countdown_product(int n) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现递归计数函数
 // 计算一个数有多少位数字
 // 例如：count_digits(1234) = 4
 int count_digits(int n) {
-    if (n < 10) return 1;  // 基础情况
-    // TODO: 递归情况 - 思考如何减少问题规模
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

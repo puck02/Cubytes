@@ -4,14 +4,15 @@
 // 返回数组中第n个元素的值（使用指针算术）
 // 提示：ptr + n 指向第n个元素
 int get_nth_element(int *ptr, int n) {
-    // TODO: 使用指针算术访问
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现这个函数
 // 设置数组中第n个元素的值（使用指针算术）
 void set_nth_element(int *ptr, int n, int value) {
-    // TODO: 使用指针算术修改
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

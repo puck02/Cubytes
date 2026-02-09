@@ -1,18 +1,24 @@
 #include "unity.h"
 #include <string.h>
 
-// TODO: 实现这个函数
-// 复制源字符串到目标字符串（不使用strcpy）
-// 提示：逐个字符复制，直到'\0'
 void my_strcpy(char *dest, const char *src) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
+    dest[i] = '\0';
 }
 
-// TODO: 实现这个函数
-// 连接两个字符串（不使用strcat）
-// 将src追加到dest的末尾
 void my_strcat(char *dest, const char *src) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
+    int j = 0;
+    while (src[j] != '\0') {
+        dest[i] = src[j];
+        i++;
+        j++;
+    }
+    dest[i] = '\0';
 }
 
 void setUp(void) {}

@@ -3,7 +3,8 @@
 // TODO: 实现函数，交换两个整数的值
 // 提示：使用指针参数
 void swap(int *a, int *b) {
-    // TODO: 交换*a和*b的值
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

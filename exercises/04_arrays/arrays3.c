@@ -1,20 +1,15 @@
 #include "unity.h"
 
-// TODO: 实现这个函数
-// 计算数组中所有元素的和
-// arr: 数组, size: 数组大小
-// 提示：使用for循环遍历数组
 int sum_array(int arr[], int size) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    return sum;
 }
 
-// TODO: 实现这个函数
-// 计算数组的平均值
-// 提示：sum / size (整数除法)
 int average_array(int arr[], int size) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

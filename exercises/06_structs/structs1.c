@@ -7,11 +7,9 @@ typedef struct {
     int y;
 } Point;
 
-// TODO: 实现函数，创建并返回一个Point
 Point create_point(int x, int y) {
-    Point p;
-    // TODO: 设置p.x和p.y的值
-    return p;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

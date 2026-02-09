@@ -4,14 +4,21 @@
 // 通过指针参数修改多个变量
 // 将x和y都增加10
 void increment_both(int *x, int *y) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现这个函数
 // 计算数组的最大值和最小值
 // 通过指针参数返回结果
 void find_min_max(int *arr, int size, int *min, int *max) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
+        if (arr[i] > *max) {
+            *max = arr[i];
+        }
+    }
 }
 
 void setUp(void) {}

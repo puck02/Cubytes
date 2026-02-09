@@ -15,8 +15,9 @@ typedef enum {
 // 如果是周末(SATURDAY-SUNDAY)返回0
 // 提示：使用switch语句，不要忘记break
 int is_weekday(DayOfWeek day) {
-    // TODO: 使用switch实现
-    return 0;
+    // TODO: 实现这个函数
+    
+}
 }
 
 void setUp(void) {}

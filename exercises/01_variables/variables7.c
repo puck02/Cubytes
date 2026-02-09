@@ -6,19 +6,22 @@
 // TODO: 实现整数除法函数
 // 返回 a 除以 b 的商（整数部分）
 int integer_divide(int a, int b) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现求余函数
 // 返回 a 除以 b 的余数
 int get_remainder(int a, int b) {
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现函数，同时返回商和余数
 // 使用指针参数作为输出
 void divide_with_remainder(int a, int b, int *quotient, int *remainder) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

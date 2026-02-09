@@ -2,8 +2,8 @@
 
 // TODO: 实现加法函数
 int add(int a, int b) {
-    // TODO: 返回a + b
-    return 0;
+    // TODO: 返回 a + b
+    
 }
 
 void setUp(void) {}

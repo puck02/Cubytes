@@ -5,16 +5,20 @@
 // fib(0) = 0, fib(1) = 1
 // fib(n) = fib(n-1) + fib(n-2)
 int fibonacci(int n) {
-    // TODO: 使用递归实现
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 // TODO: 实现递归函数
 // 计算x的n次方
 // 提示：power(x, n) = x * power(x, n-1)
 int power(int x, int n) {
-    // TODO: 使用递归实现
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    return x * power(x, n - 1);
 }
 
 void setUp(void) {}

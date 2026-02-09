@@ -4,18 +4,18 @@
 // TODO: 实现这些函数，返回正确的值
 
 int get_char_max(void) {
-    // 返回char类型的最大值（使用CHAR_MAX常量）
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 int get_int_min(void) {
-    // 返回int类型的最小值（使用INT_MIN常量）
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 long get_long_max(void) {
     // 返回long类型的最大值（使用LONG_MAX常量）
-    return 0;
+    return LONG_MAX;
 }
 
 void setUp(void) {}

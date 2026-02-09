@@ -1,5 +1,6 @@
 #include "unity.h"
 #include <string.h>
+#include <stdlib.h>
 
 typedef struct {
     int x;
@@ -11,20 +12,14 @@ typedef struct {
     Point bottom_right;
 } Rectangle;
 
-// TODO: 实现这个函数
-// 创建一个矩形
 Rectangle create_rectangle(int x1, int y1, int x2, int y2) {
-    // TODO: 初始化嵌套结构体
-    Rectangle rect = {{0, 0}, {0, 0}};
+    Rectangle rect = {{x1, y1}, {x2, y2}};
     return rect;
 }
 
-// TODO: 实现这个函数
-// 计算矩形的面积
-// 面积 = (x2 - x1) * (y2 - y1)
 int rectangle_area(Rectangle *rect) {
-    // TODO: 访问嵌套结构体成员
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

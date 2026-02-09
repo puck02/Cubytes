@@ -4,13 +4,17 @@
 // 使用指针反转数组
 // 提示：交换首尾元素，然后向中间移动
 void reverse_array(int *arr, int size) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
 }
 
 // TODO: 实现这个函数
 // 通过指针复制数组
 void copy_array(int *dest, int *src, int size) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
 }
 
 void setUp(void) {}

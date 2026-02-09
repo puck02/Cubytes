@@ -26,7 +26,5 @@ int main(void) {
 
 // TODO: 在这里定义is_even函数
 bool is_even(int n) {
-    // TODO: 实现偶数判断
-    // 提示：使用 % 运算符
-    return false;
+    return n % 2 == 0;
 }

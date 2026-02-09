@@ -4,15 +4,21 @@
 // 统计数组中有多少个偶数
 // 提示：使用for循环，使用%运算符检查偶数
 int count_even(int arr[], int size) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    }
+    return count;
 }
 
 // TODO: 实现这个函数
 // 找到第一个负数的索引，如果没有返回-1
 // 提示：使用循环和break语句
 int find_first_negative(int arr[], int size) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
+    }
     return -1;
 }
 

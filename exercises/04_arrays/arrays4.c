@@ -1,19 +1,13 @@
 #include "unity.h"
 
-// TODO: 实现这个函数
-// 返回3x3矩阵中指定位置的元素
-// matrix: 3x3矩阵, row: 行索引, col: 列索引
 int get_matrix_element(int matrix[3][3], int row, int col) {
-    // TODO: 使用matrix[row][col]访问
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
-// TODO: 实现这个函数
-// 计算3x3矩阵主对角线元素的和
-// 主对角线：matrix[0][0] + matrix[1][1] + matrix[2][2]
 int diagonal_sum(int matrix[3][3]) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {}

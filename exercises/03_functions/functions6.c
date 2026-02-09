@@ -6,14 +6,15 @@ int global_counter = 0;
 // TODO: 实现这个函数
 // 增加global_counter并返回新值
 int increment_counter(void) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
 }
 
 // TODO: 实现这个函数
 // 重置global_counter为0
 void reset_counter(void) {
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
 }
 
 void setUp(void) {

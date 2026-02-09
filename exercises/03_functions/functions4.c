@@ -4,15 +4,21 @@
 // 返回两个数中的较大值
 // 提示：使用if语句和return
 int max(int a, int b) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
+} else {
+        return b;
+    }
 }
 
 // TODO: 实现这个函数
 // 返回两个数中的较小值
 int min(int a, int b) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
+} else {
+        return b;
+    }
 }
 
 void setUp(void) {}

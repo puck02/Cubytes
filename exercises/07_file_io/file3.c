@@ -2,18 +2,22 @@
 #include <stdio.h>
 #include <string.h>
 
-// TODO: 实现这个函数
-// 使用fwrite写入二进制数据（整数数组）
 int write_binary_array(const char *filename, int *arr, int size) {
-    // TODO: 使用fopen("wb"), fwrite, fclose
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    size_t written = fwrite(arr, sizeof(int), size, file);
+    fclose(file);
+    return (written == (size_t)size) ? 1 : 0;
 }
 
-// TODO: 实现这个函数
-// 使用fread读取二进制数据
 int read_binary_array(const char *filename, int *arr, int size) {
-    // TODO: 使用fopen("rb"), fread, fclose
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    size_t read = fread(arr, sizeof(int), size, file);
+    fclose(file);
+    return (read == (size_t)size) ? 1 : 0;
 }
 
 void setUp(void) {}

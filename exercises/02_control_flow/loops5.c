@@ -6,32 +6,36 @@
 // TODO: 实现函数，求和时跳过偶数
 // 只对奇数求和：1 + 3 + 5 + ... (所有 <= n 的奇数)
 int sum_odd_numbers(int n) {
-    int sum = 0;
-    // TODO: 使用for循环和continue跳过偶数
+    // TODO: 实现这个函数
+    
+}
     return sum;
 }
 
 // TODO: 实现函数，计数非零元素
 // 跳过值为0的元素
 int count_non_zero(int arr[], int size) {
-    int count = 0;
-    // TODO: 使用continue跳过零值
+    // TODO: 实现这个函数
+    
+}
     return count;
 }
 
 // TODO: 实现函数，求数组中正数的和
 // 使用continue跳过负数和零
 int sum_positive(int arr[], int size) {
-    int sum = 0;
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
     return sum;
 }
 
 // TODO: 实现函数，跳过3的倍数求和
 // 1+2+4+5+7+8+10+... (跳过3,6,9...)
 int sum_skip_multiples_of_3(int n) {
-    int sum = 0;
-    // TODO: 实现
+    // TODO: 实现这个函数
+    
+}
     return sum;
 }
 

@@ -1,19 +1,21 @@
 #include "unity.h"
 #include <string.h>
 
-// TODO: 实现这个函数
-// 比较两个字符串是否相等（不使用strcmp）
-// 相等返回1，不相等返回0
 int strings_equal(const char *str1, const char *str2) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+        i++;
+    }
+    return str1[i] == str2[i];
 }
 
-// TODO: 实现这个函数
-// 计算字符串中某个字符出现的次数
 int count_char(const char *str, char ch) {
-    // TODO: 实现
-    return 0;
+    // TODO: 实现这个函数
+    
+}
+    }
+    return count;
 }
 
 void setUp(void) {}

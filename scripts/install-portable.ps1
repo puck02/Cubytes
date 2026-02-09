@@ -111,13 +111,18 @@ Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "  ✨ 安装完成！" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "📚 快速开始:" -ForegroundColor Yellow
+Write-Host "📚 快速开始 (Windows 简化版):" -ForegroundColor Yellow
 Write-Host ""
 
 if (Test-Path "mingw64\bin\gcc.exe") {
-    Write-Host "编译示例 (使用便携版 GCC):" -ForegroundColor Cyan
+    Write-Host "📝 第一个练习:" -ForegroundColor Cyan
     Write-Host "  .\mingw64\bin\gcc.exe exercises\00_intro\intro1.c -o intro1.exe" -ForegroundColor White
     Write-Host "  .\intro1.exe" -ForegroundColor White
+    Write-Host ""
+    Write-Host "🎯 继续练习:" -ForegroundColor Cyan
+    Write-Host "  1. 打开 exercises 文件夹" -ForegroundColor White
+    Write-Host "  2. 修改 .c 文件完成 TODO" -ForegroundColor White
+    Write-Host "  3. 编译并运行测试" -ForegroundColor White
 } else {
     Write-Host "编译示例:" -ForegroundColor Cyan
     Write-Host "  gcc exercises\00_intro\intro1.c -o intro1.exe" -ForegroundColor White
@@ -125,8 +130,12 @@ if (Test-Path "mingw64\bin\gcc.exe") {
 }
 
 Write-Host ""
-Write-Host "📖 查看练习:" -ForegroundColor Cyan
+Write-Host "📖 查看所有练习:" -ForegroundColor Cyan
 Write-Host "  type README.md" -ForegroundColor White
+Write-Host ""
+Write-Host "⚠️  注意:" -ForegroundColor Yellow
+Write-Host "  Windows 版本使用手动编译方式" -ForegroundColor White
+Write-Host "  高级用户可安装 Rust 后使用 'cargo run -- watch' 自动监控" -ForegroundColor White
 Write-Host ""
 Write-Host "💡 提示: 便携版 GCC 在 mingw64 文件夹中" -ForegroundColor Yellow
 Write-Host ""

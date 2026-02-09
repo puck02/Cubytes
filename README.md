@@ -50,21 +50,30 @@ Cling是一个交互式C语言学习系统，包含58道精心设计的练习，
 irm https://raw.githubusercontent.com/puck02/Cling/main/scripts/install-portable.ps1 | iex
 ```
 
+> **Windows 用户注意**：便携版安装后，使用手动编译方式学习（无 `cling watch` 命令）。  
+> 编译命令：`.\mingw64\bin\gcc.exe exercises\练习名.c -o 输出.exe`
+
 **macOS / Linux：**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/puck02/Cling/main/scripts/install.sh | bash
 ```
 
-**Windows（以管理员身份运行PowerShell）：**
-```powershell
-iwr -useb https://raw.githubusercontent.com/puck02/Cling/main/scripts/install.ps1 | iex
-```
+安装完成后开始学习：
 
-安装完成后，克隆仓库开始学习：
+**macOS / Linux:**
 ```bash
 git clone https://github.com/puck02/Cling.git
 cd Cling
 cling watch
+```
+
+**Windows:**
+```powershell
+# 项目已自动下载到 Cling 文件夹
+cd Cling
+# 手动编译练习
+.\mingw64\bin\gcc.exe exercises\00_intro\intro1.c -o intro1.exe
+.\intro1.exe
 ```
 
 ---

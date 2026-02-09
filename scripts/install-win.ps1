@@ -73,15 +73,20 @@ $pathScript = @"
 Set-Content -Path "cling.ps1" -Value $pathScript -Encoding UTF8
 
 Write-Host ""
-Write-Host "安装完成！" -ForegroundColor Green
+Write-Host "=========================" -ForegroundColor Green
+Write-Host "  安装完成！" -ForegroundColor Green
+Write-Host "=========================" -ForegroundColor Green
 Write-Host ""
 Write-Host "快速开始:" -ForegroundColor Yellow
 if (Test-Path "cling.exe") {
-    Write-Host "  .\cling watch" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "  .\cling watch" -ForegroundColor Cyan -BackgroundColor DarkGray
+    Write-Host ""
+    Write-Host "注意: PowerShell 需要用 .\ 前缀来运行当前目录的程序" -ForegroundColor DarkYellow
     Write-Host ""
     Write-Host "然后修改 exercises 目录下的练习文件即可自动编译测试！" -ForegroundColor White
 } else {
-    Write-Host "  gcc exercises\00_intro\intro1.c -o intro1.exe" -ForegroundColor Cyan
+    Write-Host "  .\mingw64\bin\gcc.exe exercises\00_intro\intro1.c -o intro1.exe" -ForegroundColor Cyan
     Write-Host "  .\intro1.exe" -ForegroundColor Cyan
 }
 Write-Host ""

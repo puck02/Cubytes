@@ -1,15 +1,28 @@
 # Cling 一键安装脚本 (Windows)
-# 自动处理编码问题
+# ⚠️ 此脚本已弃用，请使用新的便携版脚本
 
 # 设置控制台编码为 UTF-8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 $OutputEncoding = [System.Text.Encoding]::UTF8
 chcp 65001 > $null
 
-Write-Host "==================================" -ForegroundColor Cyan
-Write-Host "   Cling 安装程序 (Windows)" -ForegroundColor Green
-Write-Host "==================================" -ForegroundColor Cyan
 Write-Host ""
+Write-Host "========================================" -ForegroundColor Red
+Write-Host "  ⚠️  此安装脚本已弃用" -ForegroundColor Yellow
+Write-Host "========================================" -ForegroundColor Red
+Write-Host ""
+Write-Host "请使用新的便携版安装脚本:" -ForegroundColor Yellow
+Write-Host ""
+Write-Host "irm https://raw.githubusercontent.com/puck02/Cling/main/scripts/install-portable.ps1 | iex" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "新脚本特点:" -ForegroundColor Green
+Write-Host "  ✓ 不会弹出安装窗口" -ForegroundColor White
+Write-Host "  ✓ 不会修改系统" -ForegroundColor White
+Write-Host "  ✓ 纯下载方案，安全可靠" -ForegroundColor White
+Write-Host ""
+Write-Host "按任意键退出..." -ForegroundColor Yellow
+$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+exit 0
 
 # 检查是否安装了 GCC
 Write-Host "[1/5] 检查 GCC..." -ForegroundColor Yellow

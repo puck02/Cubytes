@@ -4,6 +4,18 @@ $OutputEncoding = [System.Text.Encoding]::UTF8
 
 Write-Host "正在安装 Cling..." -ForegroundColor Green
 
+# 设置执行策略（如果需要）
+$currentPolicy = Get-ExecutionPolicy -Scope CurrentUser
+if ($currentPolicy -eq "Restricted" -or $currentPolicy -eq "Undefined") {
+    Write-Host "设置 PowerShell 执行策略..." -ForegroundColor Yellow
+    try {
+        Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+        Write-Host "✓ 执行策略已更新" -ForegroundColor Green
+    } catch {
+        Write-Host "警告: 无法设置执行策略，可能需要管理员权限" -ForegroundColor Yellow
+    }
+}
+
 # Check Git
 if (!(Get-Command git -ErrorAction SilentlyContinue)) {
     Write-Host "错误: 需要先安装 Git" -ForegroundColor Red

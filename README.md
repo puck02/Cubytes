@@ -50,9 +50,9 @@ Cling是一个交互式C语言学习系统，包含58道精心设计的练习，
 irm https://raw.githubusercontent.com/puck02/Cling/main/scripts/install-win.ps1 | iex
 ```
 
-安装完成后在Cling目录运行：
+安装完成后直接运行：
 ```powershell
-.\cling.exe watch
+cling watch
 ```
 
 **macOS / Linux：**

@@ -37,7 +37,7 @@ Write-Host "[3/4] 下载 Cling..." -ForegroundColor Yellow
 if (Test-Path "Cling") {
     Write-Host "   目录已存在，跳过克隆" -ForegroundColor Yellow
 } else {
-    git clone https://github.com/puck82/Cling.git
+    git clone https://github.com/puck02/Cling.git
     if ($LASTEXITCODE -ne 0) {
         Write-Host "错误: 克隆失败" -ForegroundColor Red
         exit 1

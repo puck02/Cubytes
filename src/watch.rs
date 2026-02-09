@@ -14,22 +14,30 @@ pub fn watch(exercises: &ExerciseList, state: &mut StateFile) {
     println!("{}", "修改练习文件后会自动检测并运行".dimmed());
     println!("\n{}", "命令: n(next) | r(run) | l(list) | q(quit)".yellow());
     
-    // 确定当前练习
-    let mut current_exercise = if let Some(current) = &state.current {
-        current.clone()
-    } else if let Some(first) = exercises.exercises.first() {
-        state.set_current(&first.name);
-        state.save(".cling-state.txt");
-        first.name.clone()
-    } else {
-        eprintln!("{}", "没有可用的练习".red());
-        return;
+    // 确定当前练习：跳到第一个未完成的题
+    let mut current_exercise = {
+        // 优先找第一个未通过的练习
+        let first_incomplete = exercises.exercises.iter()
+            .find(|e| !state.is_completed(&e.name))
+            .map(|e| e.name.clone());
+        
+        if let Some(name) = first_incomplete {
+            state.set_current(&name);
+            state.save(".cling-state.txt");
+            name
+        } else if let Some(last) = exercises.exercises.last() {
+            // 全部完成，停在最后一题
+            last.name.clone()
+        } else {
+            eprintln!("{}", "没有可用的练习".red());
+            return;
+        }
     };
     
     // 显示进度
     ui::show_progress(exercises, state);
     
-    // 初始检查
+    // 初始检查（不自动跳题，只显示当前题的状态）
     check_exercise(exercises, &current_exercise, state);
     
     // 设置文件监控
@@ -54,7 +62,14 @@ pub fn watch(exercises: &ExerciseList, state: &mut StateFile) {
                 let path = exercise.path();
                 if event.paths.iter().any(|p| p == &path) {
                     println!("\n{}", "检测到文件变化...".yellow());
-                    check_exercise(exercises, &current_exercise, state);
+                    // 文件变化时检查，通过则自动跳到下一题
+                    if check_exercise(exercises, &current_exercise, state) {
+                        if let Some(next) = exercises.get_next(&current_exercise) {
+                            current_exercise = next.name.clone();
+                            state.set_current(&current_exercise);
+                            state.save(".cling-state.txt");
+                        }
+                    }
                 }
             }
         }
@@ -64,6 +79,7 @@ pub fn watch(exercises: &ExerciseList, state: &mut StateFile) {
             if let Ok(TermEvent::Key(KeyEvent { code, .. })) = event::read() {
                 match code {
                     KeyCode::Char('n') | KeyCode::Char('N') => {
+                        // n 只跳一题，检查但不自动再跳
                         if let Some(next) = exercises.get_next(&current_exercise) {
                             current_exercise = next.name.clone();
                             state.set_current(&current_exercise);
@@ -75,8 +91,15 @@ pub fn watch(exercises: &ExerciseList, state: &mut StateFile) {
                         }
                     }
                     KeyCode::Char('r') | KeyCode::Char('R') => {
+                        // r 检查当前题，通过则自动跳到下一题
                         println!("\n{}", "重新运行...".cyan());
-                        check_exercise(exercises, &current_exercise, state);
+                        if check_exercise(exercises, &current_exercise, state) {
+                            if let Some(next) = exercises.get_next(&current_exercise) {
+                                current_exercise = next.name.clone();
+                                state.set_current(&current_exercise);
+                                state.save(".cling-state.txt");
+                            }
+                        }
                     }
                     KeyCode::Char('l') | KeyCode::Char('L') => {
                         ui::show_progress(exercises, state);
@@ -92,7 +115,8 @@ pub fn watch(exercises: &ExerciseList, state: &mut StateFile) {
     }
 }
 
-fn check_exercise(exercises: &ExerciseList, name: &str, state: &mut StateFile) {
+/// 检查练习，返回 true 表示通过，false 表示失败
+fn check_exercise(exercises: &ExerciseList, name: &str, state: &mut StateFile) -> bool {
     if let Some(exercise) = exercises.find(name) {
         println!("\n{}", "=".repeat(60));
         println!("{} {}", "检查:".cyan().bold(), name);
@@ -106,23 +130,11 @@ fn check_exercise(exercises: &ExerciseList, name: &str, state: &mut StateFile) {
                 
                 if !state.is_completed(name) {
                     state.complete_exercise(name);
-                    state.save(".cling-state.txt");  // 立即保存完成状态
-                    
-                    if let Some(next) = exercises.get_next(name) {
-                        println!("\n{}", "🎉 太棒了！进入下一题...".green());
-                        state.set_current(&next.name);
-                        state.save(".cling-state.txt");
-                        ui::show_progress(exercises, state);
-                        
-                        // 自动检查下一题
-                        check_exercise(exercises, &next.name, state);
-                    } else {
-                        show_completion_celebration(exercises);
-                    }
-                } else {
-                    state.save(".cling-state.txt");
-                    ui::show_progress(exercises, state);
+                    println!("\n{}", "🎉 太棒了！进入下一题...".green());
                 }
+                state.save(".cling-state.txt");
+                ui::show_progress(exercises, state);
+                return true;
             }
             Err(e) => {
                 println!("{}", "❌ 失败".red().bold());
@@ -138,6 +150,7 @@ fn check_exercise(exercises: &ExerciseList, name: &str, state: &mut StateFile) {
             }
         }
     }
+    false
 }
 
 fn show_completion_celebration(exercises: &ExerciseList) {

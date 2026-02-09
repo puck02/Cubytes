@@ -13,7 +13,7 @@ Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
 # 步骤 1: 检查 Git
-Write-Host "[1/4] 检查 Git..." -ForegroundColor Yellow
+Write-Host "[1/5] 检查 Git..." -ForegroundColor Yellow
 $gitPath = Get-Command git -ErrorAction SilentlyContinue
 if (-not $gitPath) {
     Write-Host "  ❌ 未找到 Git" -ForegroundColor Red
@@ -28,7 +28,7 @@ Write-Host "  ✓ Git 已安装" -ForegroundColor Green
 
 # 步骤 2: 克隆仓库
 Write-Host ""
-Write-Host "[2/4] 下载 Cling 项目..." -ForegroundColor Yellow
+Write-Host "[2/5] 下载 Cling 项目..." -ForegroundColor Yellow
 if (Test-Path "Cling") {
     Write-Host "  ⚠ 目录已存在，使用现有版本" -ForegroundColor Yellow
     Set-Location Cling
@@ -43,9 +43,31 @@ if (Test-Path "Cling") {
     Write-Host "  ✓ 项目已下载" -ForegroundColor Green
 }
 
-# 步骤 3: 下载便携版 MinGW
+# 步骤 3: 下载预编译的 Cling CLI
 Write-Host ""
-Write-Host "[3/4] 下载便携版 GCC 编译器..." -ForegroundColor Yellow
+Write-Host "[3/5] 下载 Cling CLI 工具..." -ForegroundColor Yellow
+
+if (Test-Path "cling.exe") {
+    Write-Host "  ✓ Cling 已存在" -ForegroundColor Green
+} else {
+    Write-Host "  📦 下载预编译版本..." -ForegroundColor Cyan
+    
+    # 从 GitHub Releases 下载最新版本
+    $clingUrl = "https://github.com/puck02/Cling/releases/latest/download/cling-windows-x86_64.exe"
+    
+    try {
+        $ProgressPreference = 'SilentlyContinue'
+        Invoke-WebRequest -Uri $clingUrl -OutFile "cling.exe" -UseBasicParsing
+        Write-Host "  ✓ Cling CLI 已下载" -ForegroundColor Green
+    } catch {
+        Write-Host "  ⚠ 下载失败（可选功能）: $_" -ForegroundColor Yellow
+        Write-Host "  提示: 仍可手动编译练习，或稍后手动下载 cling.exe" -ForegroundColor Cyan
+    }
+}
+
+# 步骤 4: 下载便携版 MinGW
+Write-Host ""
+Write-Host "[4/5] 下载便携版 GCC 编译器..." -ForegroundColor Yellow
 
 $gccPath = Get-Command gcc -ErrorAction SilentlyContinue
 if ($gccPath) {
@@ -61,9 +83,9 @@ if ($gccPath) {
     
     try {
         # 显示下载进度
-        $ProgressPreference = 'Continue'
-        Invoke-WebRequest -Uri $mingwUrl -OutFile $mingwZip -UseBasicParsing
-        
+     5: 测试编译
+Write-Host ""
+Write-Host "[5/5
         Write-Host "  📂 解压中..." -ForegroundColor Cyan
         $ProgressPreference = 'SilentlyContinue'
         Expand-Archive -Path $mingwZip -DestinationPath . -Force
@@ -92,37 +114,19 @@ if (Test-Path $testFile) {
     $gccExe = if (Test-Path "mingw64\bin\gcc.exe") { 
         "mingw64\bin\gcc.exe" 
     } else { 
-        "gcc" 
-    }
-    
-    & $gccExe $testFile -o test_intro.exe 2>&1 | Out-Null
-    
-    if (Test-Path "test_intro.exe") {
-        Write-Host "  ✓ 编译测试成功！" -ForegroundColor Green
-        Remove-Item test_intro.exe -ErrorAction SilentlyContinue
-    } else {
-        Write-Host "  ⚠ 编译测试失败（可忽略）" -ForegroundColor Yellow
-    }
+# 检查是否有 cling.exe
+if (Test-Path "cling.exe") {
+    Write-Host "🎯 使用 Cling 自动监控模式（推荐）:" -ForegroundColor Cyan
+    Write-Host "  .\cling.exe watch" -ForegroundColor White
+    Write-Host ""
+    Write-Host "  修改练习文件后自动编译和测试！" -ForegroundColor Green
+    Write-Host ""
 }
 
-# 完成提示
-Write-Host ""
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "  ✨ 安装完成！" -ForegroundColor Green
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "📚 快速开始 (Windows 简化版):" -ForegroundColor Yellow
-Write-Host ""
-
 if (Test-Path "mingw64\bin\gcc.exe") {
-    Write-Host "📝 第一个练习:" -ForegroundColor Cyan
+    Write-Host "📝 或者手动编译单个练习:" -ForegroundColor Cyan
     Write-Host "  .\mingw64\bin\gcc.exe exercises\00_intro\intro1.c -o intro1.exe" -ForegroundColor White
     Write-Host "  .\intro1.exe" -ForegroundColor White
-    Write-Host ""
-    Write-Host "🎯 继续练习:" -ForegroundColor Cyan
-    Write-Host "  1. 打开 exercises 文件夹" -ForegroundColor White
-    Write-Host "  2. 修改 .c 文件完成 TODO" -ForegroundColor White
-    Write-Host "  3. 编译并运行测试" -ForegroundColor White
 } else {
     Write-Host "编译示例:" -ForegroundColor Cyan
     Write-Host "  gcc exercises\00_intro\intro1.c -o intro1.exe" -ForegroundColor White
@@ -133,9 +137,27 @@ Write-Host ""
 Write-Host "📖 查看所有练习:" -ForegroundColor Cyan
 Write-Host "  type README.md" -ForegroundColor White
 Write-Host ""
-Write-Host "⚠️  注意:" -ForegroundColor Yellow
-Write-Host "  Windows 版本使用手动编译方式" -ForegroundColor White
-Write-Host "  高级用户可安装 Rust 后使用 'cargo run -- watch' 自动监控" -ForegroundColor White
+Write-Host "💡 提示: 便携版工具都在当前目录
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host "  ✨ 安装完成！" -ForegroundColor Green
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "📚 快速开始:" -ForegroundColor Yellow
+Write-Host ""
+
+if (Test-Path "mingw64\bin\gcc.exe") {
+    Write-Host "编译示例 (使用便携版 GCC):" -ForegroundColor Cyan
+    Write-Host "  .\mingw64\bin\gcc.exe exercises\00_intro\intro1.c -o intro1.exe" -ForegroundColor White
+    Write-Host "  .\intro1.exe" -ForegroundColor White
+} else {
+    Write-Host "编译示例:" -ForegroundColor Cyan
+    Write-Host "  gcc exercises\00_intro\intro1.c -o intro1.exe" -ForegroundColor White
+    Write-Host "  .\intro1.exe" -ForegroundColor White
+}
+
+Write-Host ""
+Write-Host "📖 查看练习:" -ForegroundColor Cyan
+Write-Host "  type README.md" -ForegroundColor White
 Write-Host ""
 Write-Host "💡 提示: 便携版 GCC 在 mingw64 文件夹中" -ForegroundColor Yellow
 Write-Host ""
